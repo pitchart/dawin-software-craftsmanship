@@ -1,0 +1,585 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+@import url(../bower_components/reveal.js/lib/font/source-sans-pro/source-sans-pro.css);
+section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
+  color: #1975bc; }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap") format("truetype"); }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: white;
+  --content-font-family: 'Calibri', sans-serif;
+  --header-font-family: 'Calibri Light', var(--content-font-family);
+  --table-font-family: 'Calibri Light', var(--content-font-family);
+  --code-font-family: 'Inconsolata', monospace;
+  --light-pink: #c8355d;
+  --dark-pink: #a72e52;
+  --light-grey: #e8e9e9;
+  --dark-grey: #5f6062;
+  --light-blue: #2470b4;
+  --dark-blue: #242e5c;
+  --default-border-size: 1px;
+  --default-border: var(--default-border-size) solid var(--dark-pink);
+  --table-primary-borders: var(--default-border);
+  --table-secondary-borders: var(--default-border-size) solid var(--dark-grey);
+  --content-block-vertical-margin: 15px;
+  --footer-vertical-margin: 15px;
+  --main-content-horizontal-padding: 7%; }
+
+.reveal {
+  font-family: var(--content-font-family);
+  font-size: 20pt;
+  font-weight: normal;
+  color: #293847; }
+
+.reveal .slides {
+  text-align: left;
+  /*box-shadow: 0 0 5px 1px #f3f2e0;*/ }
+
+.reveal .slides section,
+.reveal .slides section section {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 var(--main-content-horizontal-padding); }
+
+.reveal .slides section section {
+  margin-left: calc(-1 * var(--main-content-horizontal-padding)); }
+
+.reveal.overview .slides section {
+  height: 650px; }
+
+.reveal .slide-background {
+  background-size: contain; }
+
+::selection {
+  color: white;
+  background: #333333;
+  text-shadow: none; }
+
+.reveal .slides .legend {
+  font-size: 20pt;
+  text-align: center;
+  font-style: italic; }
+
+.reveal .slides .table {
+  margin: var(--content-block-vertical-margin) 0;
+  border-left: var(--table-primary-borders);
+  border-collapse: collapse;
+  font-family: var(--table-font-family); }
+
+.reveal .table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.reveal .table th {
+  font-weight: bold; }
+
+.reveal .table th,
+.reveal .table td {
+  text-align: left;
+  padding: 0.375em 0.5em;
+  border-bottom: 1px solid; }
+
+.reveal .table th[align="center"],
+.reveal .table td[align="center"] {
+  text-align: center; }
+
+.reveal .table th[align="right"],
+.reveal .table td[align="right"] {
+  text-align: right; }
+
+/*.reveal .table tbody tr:last-child th,
+.reveal .table tbody tr:last-child td {
+    border-bottom: none; }*/
+.reveal .slides .table th {
+  font-weight: bold; }
+
+.reveal .slides .table tr td {
+  border: var(--table-secondary-borders); }
+
+.reveal .slides .table tr th {
+  border: var(--table-secondary-borders);
+  border-bottom: var(--table-primary-borders); }
+
+.reveal .slides .table.no-border,
+.reveal .slides .table.no-border tr td,
+.reveal .slides .table.no-border tr th {
+  border: none; }
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-family: var(--header-font-family);
+  text-transform: uppercase;
+  hyphens: none;
+  -ms-hyphens: none;
+  -webkit-hyphens: none; }
+
+.reveal h1 {
+  font-size: 40pt;
+  line-height: 130%; }
+
+.reveal h2,
+.reveal h3 {
+  color: var(--dark-pink);
+  padding: 30px 0 50px 20px;
+  text-align: left;
+  font-size: 32pt; }
+
+.reveal section > section:not([class^=page]) h2:after,
+.reveal section > section:not([class^=page]) h3:after,
+.reveal section > section[class^=page-biblio] h2:after,
+.reveal section > section[class^=page-biblio] h3:after,
+.reveal section > section[class^=page-img] h2:after,
+.reveal section > section[class^=page-img] h3:after {
+  margin-top: 24px;
+  display: block;
+  border-bottom: solid 5px var(--light-pink);
+  content: "";
+  width: 250px; }
+
+.reveal h2 small,
+.reveal h3 small {
+  vertical-align: bottom; }
+
+.reveal h4 {
+  color: var(--dark-blue);
+  margin-bottom: 15px; }
+
+/*********************************************
+ * CONTENT
+ *********************************************/
+.reveal em {
+  color: var(--dark-pink);
+  font-style: italic; }
+
+.reveal strong {
+  color: var(--dark-pink);
+  font-weight: bold; }
+
+.reveal ul, .reveal ol {
+  margin-bottom: 20px; }
+
+.reveal ul ul, .reveal ol ol {
+  margin-left: 20px; }
+
+.reveal li {
+  margin-top: 0.33em;
+  margin-bottom: 0.50em;
+  margin-left: inherit;
+  list-style-position: inside; }
+
+.reveal li > p {
+  display: inline-block; }
+
+.reveal li, .reveal p {
+  line-height: 1.2; }
+
+.reveal p + p, .reveal p + h4, .reveal p + ul {
+  margin-top: 20px; }
+
+.reveal blockquote p:first-child, .reveal blockquote p:last-child {
+  display: block; }
+
+.reveal blockquote {
+  background: #e6e6e6;
+  padding: 0.25em 0.5em;
+  font-style: italic;
+  margin: 15px 0; }
+
+/*********************************************
+ * CODE
+ *********************************************/
+.reveal pre {
+  box-shadow: none;
+  width: 100%;
+  white-space: pre-wrap; }
+
+.reveal pre > code, .reveal .code {
+  max-height: 60vh;
+  font-size: 18pt;
+  line-height: normal;
+  margin-top: 16px;
+  padding: 0.5em; }
+
+.slides section > section {
+  background: url("../ressources/theme/page.png") no-repeat top left;
+  background-size: cover;
+  padding: 0 5%; }
+
+.slides section > section.page-title {
+  background: url("../ressources/theme/page-title.png") no-repeat top right;
+  background-size: cover; }
+
+.slides section.page-img {
+  background: url("../ressources/theme/page-img.png") no-repeat top right;
+  background-size: cover; }
+
+.slides section > section.page-plan {
+  background: url("../ressources/theme/page-plan.png") no-repeat top right;
+  background-size: cover;
+  padding-left: 35%; }
+
+.slides section > section.page-biblio {
+  background: url("../ressources/theme/page-biblio.png") no-repeat top right;
+  background-size: cover;
+  padding-left: 33%; }
+
+.slides section > section.page-plan h2,
+.slides section > section.page-biblio h2 {
+  padding-left: 0; }
+
+.slides section > section.page-plan h2 {
+  padding-bottom: 3em; }
+
+.slides section > section.page-questions {
+  background: url("../ressources/theme/page-questions.png") no-repeat top right;
+  background-size: cover;
+  padding-top: 10%; }
+
+.slides section.page-last {
+  background: url("../ressources/theme/page-last.png") no-repeat top right;
+  background-size: cover; }
+
+/*********************************************
+ * SPECIALS PAGES
+ *********************************************/
+.slides section:first-child::after {
+  color: white;
+  font-size: 13px;
+  position: absolute;
+  bottom: 5mm;
+  right: 5mm; }
+
+.reveal section.page-title h1,
+.reveal section.page-last h1 {
+  padding: 10% 10% 0 10%;
+  text-align: center;
+  float: none;
+  color: #FFF; }
+
+.reveal section.page-questions h2 {
+  padding: 5% 30% 0;
+  text-align: center;
+  float: none;
+  color: #FFF; }
+
+.reveal section.toc-2-columns ul {
+  column-count: 2; }
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a:not(.image) {
+  color: var(--dark-pink);
+  text-decoration: none;
+  transition: color .15s ease; }
+
+.reveal a:not(.image):hover {
+  color: var(--dark-pink);
+  text-shadow: none;
+  border: none; }
+
+.reveal .roll span:after {
+  color: white;
+  background: var(--dark-pink); }
+
+.reveal .slides #master-toc li a {
+  color: inherit; }
+
+.reveal .slides #master-toc li a:hover,
+.reveal .slides #master-toc li a:focus {
+  color: var(--light-pink); }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%; }
+
+.reveal section img {
+  display: block;
+  margin: 15px auto; }
+
+.slides section.page-img img {
+  margin: 0 auto;
+  max-height: 60vh;
+  width: auto; }
+
+.reveal section img.with-border {
+  border: 1px solid black; }
+
+.reveal section img.question {
+  margin-top: -200px;
+  width: 25%;
+  float: left; }
+
+.reveal figcaption {
+  text-align: center; }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  border-radius: 50%;
+  background-color: rgba(232, 233, 233, 0.3); }
+
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: var(--light-blue); }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: var(--light-blue); }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: var(--light-blue); }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: var(--light-blue); }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: var(--light-blue); }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: var(--light-blue); }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: var(--light-blue); }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: var(--light-blue); }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: var(--light-blue);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+ * FOOTER (style copied from reveal.css -> .reveal .slide-number)
+ *********************************************/
+.reveal footer, .reveal .slides footer {
+  position: absolute;
+  bottom: var(--footer-vertical-margin);
+  font-size: 12px;
+  opacity: 0.5; }
+
+.reveal .master-toc-return {
+  left: 0;
+  bottom: 4px;
+  font-size: 20px;
+  z-index: 1000;
+  border-radius: 0 50% 0 0;
+  background-color: rgba(232, 233, 233, 0.3);
+  padding: 0.75em; }
+
+.reveal .master-toc-return > a {
+  color: var(--light-blue);
+  font-weight: bold; }
+
+.reveal .copyright {
+  left: 0px;
+  width: 100%;
+  text-align: center; }
+
+.reveal .slide-number {
+  right: 30px; }
+
+/*********************************************
+ * ALERTS (taken from bootstrap)
+ * Copyright (c) 2011-2014 Twitter, Inc
+ *********************************************/
+.reveal .alert {
+  padding: var(--content-block-vertical-margin);
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 24px; }
+
+.reveal .alert em {
+  color: inherit;
+  font-weight: bold; }
+
+.reveal .alert code {
+  color: inherit; }
+
+.reveal .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6; }
+
+.reveal .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1; }
+
+.reveal .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc; }
+
+.reveal .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1; }
+
+/** incusion de font-awesome avec reveal : cf https://github.com/FortAwesome/Font-Awesome/pull/2131 */
+.reveal .fa {
+  font-family: 'FontAwesome';
+  font-style: normal; }
+
+.reveal .clear-after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.reveal .clear-after img {
+  margin: 0;
+  display: inline-block; }
+
+/** contournement bug chrome et ff qui affichent un fond noir lors du passage en fullscreen : cf https://github.com/hakimel/reveal.js/issues/1386#issuecomment-225379825 */
+html:-webkit-full-screen-ancestor {
+  background-color: inherit; }
+
+html {
+  background-color: #fff !important; }
+
+.reveal .upper {
+  text-transform: uppercase; }
+
+.reveal .vam {
+  vertical-align: middle !important; }
+
+.reveal img.inline {
+  border: none;
+  background: none;
+  box-shadow: none; }
+
+.reveal img.logo {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+  border-radius: 50%; }
+
+.reveal .t3-color {
+  color: #f58006 !important; }
+
+.reveal .t3-secondary {
+  color: #B9B9B9; }
+
+.reveal .opq-color {
+  color: #3eab34 !important; }
+
+.reveal .sf-color {
+  color: #08C !important; }
+
+.reveal .php-color {
+  color: #6C7EB7 !important; }
+
+.reveal .proxy-color {
+  color: #f58006 !important;
+  /* #FC6A31; */ }
+
+.reveal .inside-color {
+  color: #2470b4 !important; }
+
+.reveal .doctrine-color {
+  color: #FC6A31 !important; }
+
+.reveal .tw-color {
+  color: #55ACEE !important; }
+
+.reveal {
+  /* Margin helpers */
+  /* Padding helpers */ }
+  .reveal .table {
+    display: table;
+    table-layout: auto;
+    width: 100%; }
+    .reveal .table__row {
+      display: table-row; }
+    .reveal .table__cell {
+      display: table-cell; }
+  .reveal .mtn, .reveal .man, .reveal .mvn {
+    margin-top: 0; }
+  .reveal .mbn, .reveal .man, .reveal .mvn {
+    margin-bottom: 0; }
+  .reveal .mln, .reveal .man, .reveal .mhn {
+    margin-left: 0; }
+  .reveal .mrn, .reveal .man, .reveal .mhn {
+    margin-right: 0; }
+  .reveal .mts, .reveal .mas, .reveal .mvs {
+    margin-top: 0.5em; }
+  .reveal .mbs, .reveal .mas, .reveal .mvs {
+    margin-bottom: 0.5em; }
+  .reveal .mls, .reveal .mas, .reveal .mhs {
+    margin-left: 0.5em; }
+  .reveal .mrs, .reveal .mas, .reveal .mhs {
+    margin-right: 0.5em; }
+  .reveal .mtm, .reveal .mam, .reveal .mvm {
+    margin-top: 1em; }
+  .reveal .mbm, .reveal .mam, .reveal .mvm {
+    margin-bottom: 1em; }
+  .reveal .mlm, .reveal .mam, .reveal .mhm {
+    margin-left: 1em; }
+  .reveal .mrm, .reveal .mam, .reveal .mhm {
+    margin-right: 1em; }
+  .reveal .mtl, .reveal .mal, .reveal .mvl {
+    margin-top: 1.5em; }
+  .reveal .mbl, .reveal .mal, .reveal .mvl {
+    margin-bottom: 1.5em; }
+  .reveal .mll, .reveal .mal, .reveal .mhl {
+    margin-left: 1.5em; }
+  .reveal .mrl, .reveal .mal, .reveal .mhl {
+    margin-right: 1.5em; }
+  .reveal .ptn, .reveal .pan, .reveal .pvn {
+    padding-top: 0; }
+  .reveal .pbn, .reveal .pan, .reveal .pvn {
+    padding-bottom: 0; }
+  .reveal .pln, .reveal .pan, .reveal .phn {
+    padding-left: 0; }
+  .reveal .prn, .reveal .pan, .reveal .phn {
+    padding-right: 0; }
+  .reveal .pts, .reveal .pas, .reveal .pvs {
+    padding-top: 0.5em; }
+  .reveal .pbs, .reveal .pas, .reveal .pvs {
+    padding-bottom: 0.5em; }
+  .reveal .pls, .reveal .pas, .reveal .phs {
+    padding-left: 0.5em; }
+  .reveal .prs, .reveal .pas, .reveal .phs {
+    padding-right: 0.5em; }
+  .reveal .ptm, .reveal .pam, .reveal .pvm {
+    padding-top: 1em; }
+  .reveal .pbm, .reveal .pam, .reveal .pvm {
+    padding-bottom: 1em; }
+  .reveal .plm, .reveal .pam, .reveal .phm {
+    padding-left: 1em; }
+  .reveal .prm, .reveal .pam, .reveal .phm {
+    padding-right: 1em; }
+  .reveal .ptl, .reveal .pal, .reveal .pvl {
+    padding-top: 1.5em; }
+  .reveal .pbl, .reveal .pal, .reveal .pvl {
+    padding-bottom: 1.5em; }
+  .reveal .pll, .reveal .pal, .reveal .phl {
+    padding-left: 1.5em; }
+  .reveal .prl, .reveal .pal, .reveal .phl {
+    padding-right: 1.5em; }

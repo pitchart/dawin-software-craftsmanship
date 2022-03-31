@@ -1,0 +1,11 @@
+.table {
+    display: table;
+    table-layout: auto;
+    width: 100%;
+    &__row {
+        display: table-row;
+    }
+    &__cell {
+        display: table-cell;
+    }
+}

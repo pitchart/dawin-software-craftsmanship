@@ -1,0 +1,77 @@
+.brand {
+    background-image: linear-gradient(to right, #242E5C 0, #242E5C 20%, #2470b4 20%, #2470b4 40%, #c8355d 40%, #c8355d 60%, #a72e52 60%, #a72e52 80%, #5f6062 80%, #5f6062 100%);
+    height: 10px;
+    width: 100%;
+    position: fixed;
+    top:0;
+}
+.brand--footer {
+    top:auto;
+    bottom:0;
+}
+
+#title-footer {
+    text-align: right;
+    padding:15px 0;
+    bottom:15px !important;
+    a {
+        color: #FFF;
+        font-size: 20px;
+        margin-right: 20px;
+    }
+}
+.reveal {
+    blockquote {
+        color: #242E5C;
+    }
+    .author {
+        font-size:0.75em;
+        text-align: right;
+        font-style: italic;
+        &::before {
+            content: "-";
+            display: inline;
+            margin-right: 0.25em;
+        }
+    }
+
+    .solution {
+        color: $focusColor;
+        &::before {
+            content: "=>";
+            margin-right:0.325em;
+        }
+    }
+
+    // Align
+    .align-left {
+        text-align: left;
+    }
+    .align-right {
+        text-align: right;
+    }
+
+    .focus {
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+
+    @media print {
+
+        @page {size: A4 landscape;}
+
+        /* use width if in portrait (use the smaller size to try
+           and prevent image from overflowing page... */
+        .stretch {
+            display: inline-block;
+            max-height: 700px !important;
+            height: auto !important;
+            width: auto !important;
+            margin: auto !important;
+        }
+        #title-footer {
+            display: none;
+        }
+    }
+
+}

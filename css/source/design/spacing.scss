@@ -1,0 +1,45 @@
+$space-s: 0.5em !default;
+$space-m: 1em !default;
+$space-l: 1.5em !default;
+
+/* Margin helpers */
+.mtn, .man, .mvn { margin-top: 0; }
+.mbn, .man, .mvn { margin-bottom: 0; }
+.mln, .man, .mhn { margin-left: 0; }
+.mrn, .man, .mhn { margin-right: 0; }
+
+.mts, .mas, .mvs { margin-top: $space-s; }
+.mbs, .mas, .mvs { margin-bottom: $space-s; }
+.mls, .mas, .mhs { margin-left: $space-s; }
+.mrs, .mas, .mhs { margin-right: $space-s; }
+
+.mtm, .mam, .mvm { margin-top: $space-m; }
+.mbm, .mam, .mvm { margin-bottom: $space-m; }
+.mlm, .mam, .mhm { margin-left: $space-m; }
+.mrm, .mam, .mhm { margin-right: $space-m; }
+
+.mtl, .mal, .mvl { margin-top: $space-l; }
+.mbl, .mal, .mvl { margin-bottom: $space-l; }
+.mll, .mal, .mhl { margin-left: $space-l; }
+.mrl, .mal, .mhl { margin-right: $space-l; }
+
+/* Padding helpers */
+.ptn, .pan, .pvn { padding-top: 0; }
+.pbn, .pan, .pvn { padding-bottom: 0; }
+.pln, .pan, .phn { padding-left: 0; }
+.prn, .pan, .phn { padding-right: 0; }
+
+.pts, .pas, .pvs { padding-top: $space-s; }
+.pbs, .pas, .pvs { padding-bottom: $space-s; }
+.pls, .pas, .phs { padding-left: $space-s; }
+.prs, .pas, .phs { padding-right: $space-s; }
+
+.ptm, .pam, .pvm { padding-top: $space-m; }
+.pbm, .pam, .pvm { padding-bottom: $space-m; }
+.plm, .pam, .phm { padding-left: $space-m; }
+.prm, .pam, .phm { padding-right: $space-m; }
+
+.ptl, .pal, .pvl { padding-top: $space-l; }
+.pbl, .pal, .pvl { padding-bottom: $space-l; }
+.pll, .pal, .phl { padding-left: $space-l; }
+.prl, .pal, .phl { padding-right: $space-l; }

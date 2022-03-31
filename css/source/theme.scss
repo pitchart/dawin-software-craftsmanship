@@ -1,0 +1,43 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+ // This file has been copied over from
+ // ../../bower_components/reveal.js/css/theme/source/black.scss
+
+ // See ../../bower_components/reveal.js/css/theme/README.md
+ // for further explanations on how to create a custom reveal.js theme.
+
+// Default mixins and settings -----------------
+@import "template/mixins";
+@import "template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../bower_components/reveal.js/lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../../bower_components/reveal.js/css/theme/template/settings.scss)
+@import "variables";
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: rgb(25,117,188);
+	}
+}
+
+// Theme template ------------------------------
+@import "template/theme";
+// ---------------------------------------------
+
+@import "design/style";
+
+.reveal {
+    @import "design/table";
+    @import "design/spacing";
+}
+
+

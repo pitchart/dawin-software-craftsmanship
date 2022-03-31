@@ -1,0 +1,26 @@
+.reveal {
+    .upper { text-transform: uppercase; }
+    .vam {
+        vertical-align: middle !important;
+    }
+
+    img.inline {
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
+
+    img.logo {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+    }
+    .t3-color { color: #f58006 !important; }
+    .t3-secondary { color: #B9B9B9;}
+    .opq-color { color: #3eab34 !important; }
+    .sf-color { color: #08C !important; }
+    .php-color { color: #6C7EB7 !important; }
+    .proxy-color { color: #f58006 !important; /* #FC6A31; */ }
+    .inside-color { color: #2470b4 !important; }
+    .doctrine-color { color: #FC6A31 !important; }
+    .tw-color { color: #55ACEE !important; }
+}
