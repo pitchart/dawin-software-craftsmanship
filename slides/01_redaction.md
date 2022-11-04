@@ -8,7 +8,7 @@
 
 Le framework utilisé est [Reveal.js](https://github.com/hakimel/reveal.js).
 
-Un thème adapté à la charte graphique d'inside est fourni.
+Un thème adapté à la charte graphique d'Inside est fourni.
 
 Le contenu des slides se trouve dans le répertoire slides.
 
@@ -31,13 +31,9 @@ Exemple :
 
 
 
-## Contenu
-
-
-
 ### Règles de rédaction
 
-- Le contenu est éclaté dans les fichiers markdown, un par chapitre de la formation.
+- Le contenu est réparti dans les fichiers markdown, un par chapitre de la formation.
 - La formation commence par un chapitre zéro, qui contient au minimum une page de titre avec le titre de la formation, une page qui présente le plan de la formation, et une page d'invitation aux questions. On peut éventuellement ajouter des rappels concernant les horaires et autres informations pratiques.
 - Tous les chapitres débutent par une page de titre avec le titre du chapitre et une page qui reprend le plan de la formation. La partie en cours en mise en évidence.
 - Tous les chapitres se terminent par une page invitant aux questions, puis éventuellement par une page qui annonce un TP.
@@ -59,10 +55,11 @@ Certaines pages récurrentes des formations sont réalisées grâce à des class
 
 ### Pages de titre
 
-Les pages de titre sont composées d'un titre de premier niveau et d'un fond au logo d'inside.
+Les pages de titre sont composées d'un titre de premier niveau et d'un fond au logo d'Inside.
 
 ```markdown
 # Titre du chapitre
+## Avec un sous-titre
 
 <!-- .slide: class="page-title" -->
 ```
@@ -71,11 +68,9 @@ Les pages de titre sont composées d'un titre de premier niveau et d'un fond au 
 
 ### Pages de questions
 
-
 ```markdown
-## Questions ?
-
 <img src="ressources/theme/questions.svg" class="question" />
+# Avez-vous des questions ?
 <!-- .slide: class="page-questions" -->
 ```
 
@@ -90,7 +85,7 @@ Les pages de titre sont composées d'un titre de premier niveau et d'un fond au 
 ## Plan
 <!-- .slide: class="page-plan" -->
 - [Partie 1](#/1)
-- **[Partie 2](#/2)**
+- [Partie 2](#/2)<!-- .element: class="highlight highlight-pink" -->
 - [Partie 3](#/3)
 ```
 
@@ -164,78 +159,44 @@ function(arg) { return 'du javascript en couleur !'; }
 On peut indiquer que des éléments de slides ne doivent être révélés qu'au fur et à mesure que le formateur appuie sur le bouton. Il faut utiliser la classe `fragment`.
 
 ```markdown
-- item qui n'apparait pas tout de suite <!-- .element: class="fragment" -->
+item qui n'apparait pas tout de suite <!-- .element: class="fragment" -->
 ```
+
+Et les éléments n'apparaissent pas tout de suite <!-- .element: class="fragment" -->
 
 
 
 ### Fonctionnalités avancées
 
-Si besoin, on peut ajouter des attibuts HTML à la slide en cours où à un élément grâce aux syntaxes `<!-- .slide: ... -->` et `<!-- .element: ... -->`. Cela peut être utile pour donner un style particulier à un élément, par exemple pour le positionner.
+Si besoin, on peut ajouter des *attibuts HTML*<!-- .element: class="highlight" --> à la slide en cours où à un élément grâce aux syntaxes `<!-- .slide: ... -->` et `<!-- .element: ... -->`. 
+
+Cela peut être utile pour donner un style particulier à un élément, par exemple pour le positionner.
 
 
 
-### Divers
+### Mise en page
 
-D'autres exemples peuvent être trouvés directement dans les slides modèle.
+<div class="row mbl">
+    <div class="alert alert-success col-lg-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a justo leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi gravida, ligula ut accumsan mattis, felis quam scelerisque arcu, ut molestie urna elit a erat.
+    </div>
+    <div class="col-lg-6 col-lg-offset-1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a justo leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi gravida, ligula ut accumsan mattis, felis quam scelerisque arcu, ut molestie urna elit a erat.
+    </div>
 
+</div>
 
+> “I’m Not a Great Programmer, I’m Just a Good Programmer With Great Habits.”
+> <br>*- Kent Beck*
 
-## Exemples
-
-
-
-# Titre de chapitre
-
-<!-- .slide: class="page-title" -->
-
-
-
-## Plan
-<!-- .slide: class="page-plan" -->
-- [Partie 1](#/1)
-- **[Partie 2](#/2)**
-- [Partie 3](#/3)
-
-
-
-## Bibliographie et lectures recommandées
-<!-- .slide: class="page-biblio" -->
-
-#### Principaux ouvrages référencés :
-
-- *Clean Code* &mdash; Robert Martin
-- *Refactoring: Improving the Design of Existing Code* &mdash; Martin Fowler
-- *Working effectively with legacy code* &mdash; Michael Feathers
-- *Domain-driven design* &mdash; Eric Evans
-- *The Software Craftsman* &mdash; Sandro Mancuso
-
-#### Autres ouvrages référencés :
-
-- *Refactoring to Patterns* &mdash; Joshua Kerievsky
-- *AntiPatterns - Refactoring Software, Architectures and Projects in Crisis* &mdash; William J. Brown / Raphael C. Malveau
-- *The mythical man-month* &mdash; Frederick P. Brooks Jr.
-- *The Pragmatic Programmer - from Journeyman to Master* &mdash; Andrew Hunt / David Thomas
-- *Code complete* &mdash; Steve McConnell
-
-
-
-
-## Questions ?
-
-<img src="ressources/theme/questions.svg" class="question" />
-<!-- .slide: class="page-questions" -->
-
-
-
-## Page d'illustration
-<!-- .slide: class="page-img" -->
-
-<figure>
-	<img src="ressources/demo/wtf.png" />
-</figure>
-
-
-
-# Page de fin
-<!-- .slide: class="page-last" -->
+<div class="row mvl">
+    <div class="col-lg-3">
+        <img src="ressources/demo/wtf.png">
+    </div>
+    <div class="alert alert-warning col-lg-3 col-lg-offset-1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a justo leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi gravida, ligula ut accumsan mattis, felis quam scelerisque arcu, ut molestie urna elit a erat.
+    </div>
+    <div class="col-lg-3 col-lg-offset-1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a justo leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi gravida, ligula ut accumsan mattis, felis quam scelerisque arcu, ut molestie urna elit a erat.
+    </div>
+</div>
