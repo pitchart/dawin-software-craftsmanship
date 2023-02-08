@@ -1,4 +1,5 @@
 install:
+	git submodule update --init --recursive
 	npm install
 	bower install
 
