@@ -1,6 +1,7 @@
 [
   "00_introduction.md",
-  "01_redaction.md",
-  "02_consultation.md",
-  "03_exemples.md"
+  "01_software-craftsmanship.md",
+  "02_pratiques_collectives.md",
+  "03_pratiques_test.md",
+  "04_pratiques_clean_code.md"
 ]
