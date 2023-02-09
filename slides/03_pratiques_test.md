@@ -20,16 +20,16 @@
 
 ## Différents types de tests
 
-#### There are different types of tests depending on the needs:
+#### Différents types de tests en fonction du besoin
 
-- Test a unit (methods, classes, ...) isolated from its system: **Unit Test** <!-- .element: class="highlight highlight-pink" -->.
-- Test collaboration between units (partial or real interactions): **Integration Test**<!-- .element: class="highlight highlight-pink" -->.
-- Test all parts of an application, often using the real system : **End to End Test** <!-- .element: class="highlight highlight-pink" -->.
-- Test an application as a user: **Functional Test**<!-- .element: class="highlight highlight-pink" -->.
-- Test performance of a stressed application: **Performance Test**<!-- .element: class="highlight highlight-pink" -->.
+- Tester une unité de code (méthode, classe, module ...) de manière isolée du reste du système : **Unit Test** <!-- .element: class="highlight highlight-pink" -->.
+- Tester la collaboration entre plusieurs unités de code (de manière partielle ou complète) : **Integration Test**<!-- .element: class="highlight highlight-pink" -->.
+- Tester toutes les parties d'une application, en utilisant le système réel : **End to End Test** <!-- .element: class="highlight highlight-pink" -->.
+- Tester une application en tant qu'utilisateur : **Functional Test**<!-- .element: class="highlight highlight-pink" -->.
+- Tester la performance d'une application sous charge : **Performance Test**<!-- .element: class="highlight highlight-pink" -->.
 - ...
 
-*Let's focus on unit tests* 
+*Concentrons-nous sur les tests unitaires* 
 
 <!-- .element: class="arrow arrow-pink mtl" -->
 
@@ -171,9 +171,9 @@ Capacité des tests à supporter un refactoring de code sans virer au rouge (éc
 
 
 
-## TDD cycle: Introduction
+## Le cycle de TDD
 
-Described for the first time in « _Test-Driven Development by Example_ », by Kent Beck, 2003
+Décrit pour la première fois dans le livre _Test-Driven Development by Example_ <!-- .element: class="highlight highlight-pink" --> de Kent Beck, 2003.
 
 <!-- .element: class="arrow arrow-cyan" -->
 
@@ -181,9 +181,9 @@ Described for the first time in « _Test-Driven Development by Example_ », by K
     <div class="col-lg-4"><img src="ressources/tests/tdd-cycles.png"/></div>
     <div class="col-lg-8">
         <ul class="mtl">
-            <li>**Red** <!-- .element: class="highlight highlight-pink" -->  Write a little test that doesn't work, and perhaps doesn't even compile at first.</li>
-            <li>**Green** <!-- .element: class="highlight highlight-green" --> Make the test work quickly, committing whatever sins necessary in process.</li>
-            <li>**Refactor** <!-- .element: class="highlight highlight-cyan" --> Eliminate all the duplication created in merely getting the test to work.</li>
+            <li>**Red** <!-- .element: class="highlight highlight-pink" -->  Écrire un petit test qui ne fonctionne pas, et qui ne compile peut-être même pas au début.</li>
+            <li>**Green** <!-- .element: class="highlight highlight-green" --> Faire passer le test rapidement, en prenant tous les raccourcis nécessaires.</li>
+            <li>**Refactor** <!-- .element: class="highlight highlight-cyan" --> Éliminer toutes les duplications créées en faisant simplement fonctionner le test.</li>
         </ul>
     </div>
 </div>
@@ -192,31 +192,33 @@ Notes :
 
 
 
-
 ## TDD: Test Driven Development
 
-TDD is not a test method: **TDD is a design method**.
+TDD n'est pas une méthode de tests : **TDD est une méthode de design**.
 
-#### Applicable on
-- **project:** New or existing project.
-- **developments:** New developments or bug fixes.
+#### Applicable
+- **sur des project** nouveaux ou existants
+- **lors du développement :** nouvelles fonctionnalités, correction de bugs.
 
 Notes :
 
 
 
-## Tools requirements
+## Outils nécessaires
 
-#### Needs:
-- *Automated* <!-- .element: class="highlight highlight-cyan" --> Test Unit.
-- 'true' or 'false' assertions... but more is better
-- *Fast* <!-- .element: class="highlight highlight-cyan" --> execution of one or more Test Units.
-- Rapid feedback for success or failure.
+#### Les besoins :
+- Des tests unitaires *automatisés* <!-- .element: class="highlight highlight-cyan" --> .
+- Un framework de tests unitaires fournissant des méthodes d'assertions
+- L'exécution *rapide* <!-- .element: class="highlight highlight-cyan" --> d'un ou plusieurs tests unitaires.
+- Un feedback rapide des succès et échecs.
 
-_Possible to do it manually but easier to use a generic tool._
-- **.NET:** xUnit, NUnit, MsTests
-- **Java:** JUnit, TestNG.
-- **PHP:** phpunit, atoum
+<!-- .element: class="mbl" -->
+
+_Frameworks génériques :_ <!-- .element: class="arrow arrow-pink" -->
+- **C# / .NET :** xUnit, NUnit, MsTests
+- **Java :** JUnit, TestNG
+- **PHP :** phpunit, atoum
+- **Javascript / Typescript :** jest, mocha 
 
 Notes :
 
@@ -224,63 +226,53 @@ Notes :
 
 ## 1 - Add a test
 
-- With TDD, each new development starts by writing a new test « _that must succeed_ ».
-- This test **must** <!-- .element: class="highlight highlight-pink" --> fail as long as the behaviour is not implemented.
-- Helps to understand the functional need and the specification from the beginning
-- Force to *ask questions* <!-- .element: class="highlight highlight-pink" --> (ex: How will I call this, what is the API...)
+- Chaque nouveau développement démarre par l'écriture d'un nouveau test « _qui devra passer_ ».
+- Ce test **doit** <!-- .element: class="highlight highlight-pink" --> échouer tant que le comportement n'est pas implémenté.
+- Cela aide à analyser et comprendre le besoin fonctionnel et les spécifications
+- Force à se positionner en tant qu'*utilisateur du code* <!-- .element: class="highlight highlight-pink" -->  produit.
 
 Notes :
 
 
 
-## 2 - Running the failing tests
+## 2 - Exécuter les tests
 
-- Run **all** <!-- .element: class="highlight highlight-cyan" --> the tests
-    - Not only the ones that should fail.
-
-- The new test **must** <!-- .element: class="highlight highlight-cyan" --> fail
-    - For the targeted cause.
-
-- The new test is **the only one** <!-- .element: class="highlight highlight-cyan" --> that must fail
-    - The other tests must « succeed ».
-    - No side effects on other tests.
+- Lancer **tous** <!-- .element: class="highlight highlight-cyan" --> les tests, pas seulement celui qui doit échouer.
+- Ce nouveau test **doit** <!-- .element: class="highlight highlight-cyan" --> échouer
+- Ce nouveau test est **le seul** <!-- .element: class="highlight highlight-cyan" --> qui doit échouer
+    - Les tests précédemment implémentés doivent « passer ».
+    - Aucun effet de bord sur la suite de tests.
 
 Notes :
 
 
 
-## 3 - Writing the code
+## 3 - Écrire le code
 
-#### Make the test pass, even in an ugly way
+#### Faire passer le test : quick & dirty
 
 <div class="row mbl">
     <div class="col-lg-7">
-<em class="highlight highlight-pink">Don't</em> factorize, duplicate... <br>
-<p class="arrow arrow-cyan">Improvements will be done in the coming steps.</p>
+<em class="highlight highlight-pink">Ne pas</em> factoriser, dupliquer... <br>
+<p class="arrow arrow-cyan">Les amliorations seront faites à l'étape suivante.</p>
     </div>
     <div class="col-lg-5">
-*Focus on « passing the test », don't do any other development, it will not be tested.* <!-- .element: class="arrow arrow-pink" -->
+*Se concentrer sur le « passage du test », ne pas implémenter de code qui ne serait pas testé.* <!-- .element: class="arrow arrow-pink" -->
     </div>
 </div>
 
-#### Patterns to make test succeed
-- **Fake it:** return a constant, which will later be replaced by a variable.
-- **Triangulation:** write two examples before trying to generalize.
-- **Obvious implementation:** If fast and simple, the real implementation may be directly written.
-- **One to many:** to implement an operation which takes a collection as a parameter, first start implementing for a single unit, then for the collection
-
-Notes :
-Fake it and Triangulation help preserving the TDD cycle and are easier to think about.
+#### Enablers pour faire passer le test :
+- **Fake it :** retourner une constante, qui sera remplacée plus tard par une variable ou de la logique.
+- **Triangulation :** écrire 2 ou 3 exemples avant de généraliser une solution.
+- **Obvious implementation :** l'implémentation définitive peut être réalisée à condition d'être simple et rapide.
+- **One to many :** pour l'implémentation d'une opération appliquée sur une collection, commencer par implémenter pour un élément, puis pour une liste
 
 
 
-## 4 - Running the passing tests
+## 4 - Lancer les tests
 
-- Run **all** the tests
-    - Not only the one that should pass.
-
-- No tests must fail
-    - Neither the new one, nor the old ones.
+- Lancer **tous** les tests, pas seulement celui qui devrait passer
+- Aucun test ne doit échouer, ni le nouveau, ni les anciens
 
 Notes :
 
@@ -288,21 +280,22 @@ Notes :
 
 ## 5 - Refactoring
 
-- Now, the code may be cleaned up and refactored if needed
+Maintenant, le code peut être nettoyé et remanié si nécessaire <!-- .element: class="arrow arrow-cyan" -->
 
-- Refactoring definition: change the code without changing the behaviour
-    - Possibility to factorize code and remove duplicated sections.
+#### Refactoring <!-- .element: class="mtl" -->
+Modification du code écrit sans en changer le comportement
 
-- Run all tests again. They must succeed
-    - Certainty that nothing « broke » a functionality while refactoring.
+Relancer les tests régulièrement : ils doivent tous passer.
+
+Cela permet de s'assurer que le refactoring n'entraine pas de regression <!-- .element: class="arrow arrow-cyan" -->
 
 Notes :
 
 
 
-## TDD rules from Uncle Bob
+## Les règles du TDD
 
-*Uncle Bob* <!-- .element: class="highlight highlight-yellow" --> (Robert Martin) has defined *[3 rules](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)*
+*Robert Martin* <!-- .element: class="highlight highlight-yellow" --> (Uncle Bob) a défini *[3 règles](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)*
 
 <div class="row mtl">
     <div class="col-lg-7">
@@ -321,24 +314,21 @@ Notes :
 
 
 
-## TDD Cycle: Summary
+## TLDR
 
-Repeat the cycle for *each new behaviour* <!-- .element: class="highlight highlight-pink" -->.
+Répéter ce cycle pour *chaque nouveau comportement* <!-- .element: class="highlight highlight-pink" --> à implémenter. 
 
 <!-- .element: class="arrow arrow-pink" -->
 
-Need to find a *good size* <!-- .element: class="highlight highlight-pink" --> for each iteration.
+Nécessité de trouver *la bonne complexité* <!-- .element: class="highlight highlight-pink" --> pour chaque iteration.
 
 <!-- .element: class="arrow arrow-pink mtl" -->
 
-Iterations with different sizes
+Des itérations de complexités différentes
 
 <!-- .element: class="arrow arrow-pink mtl" -->
 
-- Depends on the developer, his experience et his self-confidence.
-- If iterations are too long (ie.: one day of test writing), cut up the functionality into smaller parts.
+- Dépendant du développeur, son expérience, son degré confiance.
+- Si une itération est trop longue, découper la fonctionnalité en plus petites parties 
 
 Notes :
-
-
-
