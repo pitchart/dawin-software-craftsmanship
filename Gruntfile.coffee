@@ -57,7 +57,6 @@ module.exports = (grunt) ->
             all: ['js/*.js']
 
         copy:
-
             dist:
                 files: [{
                     expand: true
@@ -66,7 +65,10 @@ module.exports = (grunt) ->
                         'bower_components/**'
                         'js/**'
                         'css/*.css'
+                        'css/img/**'
+                        'css/fonts/**'
                         'resources/**'
+                        'ressources/**'
                     ]
                     dest: 'dist/'
                 },{
