@@ -18,9 +18,20 @@
 
 
 
-<!-- .slide: class="page-title" -->
-# Différents types de tests
+## Différents types de tests
 
+#### There are different types of tests depending on the needs:
+
+- Test a unit (methods, classes, ...) isolated from its system: **Unit Test** <!-- .element: class="highlight highlight-pink" -->.
+- Test collaboration between units (partial or real interactions): **Integration Test**<!-- .element: class="highlight highlight-pink" -->.
+- Test all parts of an application, often using the real system : **End to End Test** <!-- .element: class="highlight highlight-pink" -->.
+- Test an application as a user: **Functional Test**<!-- .element: class="highlight highlight-pink" -->.
+- Test performance of a stressed application: **Performance Test**<!-- .element: class="highlight highlight-pink" -->.
+- ...
+
+*Let's focus on unit tests* 
+
+<!-- .element: class="arrow arrow-pink mtl" -->
 
 
 
