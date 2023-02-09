@@ -67,6 +67,44 @@ Notes :
 
 
 
+## Complexité
+
+<div class="row">
+    <div class="col-lg-5">
+<img src="ressources/qualite/complexite.png" alt="" class="mtl">
+<p class="centered legend">
+  [Dette technique, complexité & entropie du logiciel - Arnaud Lemaire](https://www.lilobase.me/tag/dette-technique-complexite-entropie-du-logiciel/)
+</p>
+    </div>
+    <div class="col-lg-7">
+<h4>Complexité essentielle</h4>
+<p>Complexité inhérente au problème métier que l’on cherche à résoudre</p>
+<h4>Complexité obligatoire</h4>
+<p>Complexité nécessaire à la mise en oeuvre de l'application&nbsp;: serveur HTTP, base de données ...</p>
+<p class="arrow arrow-pink mtn">Provient des contraintes techniques</p>
+<h4>Complexité accidentelle</h4>
+<p>Tout le reste, principalement liée à un manque de qualité de code</p>
+<p class="arrow arrow-pink mtn">Personne ne sait pourquoi elle est là, ni comment elle est arrivée</p>
+    </div>
+</div>
+
+
+
+## Couplage
+
+Indication du niveau d'interaction entre deux ou plusieurs composants logiciels (fonctions, objets, modules ou applications).
+
+- On parle de *couplage fort* <!-- .element: class="highlight highlight-cyan" --> ou *couplage serré* <!-- .element: class="highlight highlight-cyan" --> si les composants échangent beaucoup d'information. 
+- On parle de *couplage faible* <!-- .element: class="highlight highlight-cyan" -->, *couplage léger* <!-- .element: class="highlight highlight-cyan" --> ou *couplage lâche* <!-- .element: class="highlight highlight-cyan" --> si les composants échangent peu d'information et/ou de manière désynchronisée.
+
+#### Inconvénients d'un couplage fort <!-- .element: class="mtl" -->
+- Un couplage fort génère l'antipattern plat de spaghetti : on ne peut pas déterminer le qui, le quoi et le comment d’une modification de données.
+- Un couplage fort implique nécessairement une faible indépendance fonctionnelle :
+  - Le composant logiciel est *difficilement réutilisable* <!-- .element: class="highlight highlight-pink" -->,
+  - Le composant logiciel est *difficilement testable* <!-- .element: class="highlight highlight-pink" -->.
+
+
+
 ## Métriques
 
 #### But : objectiver la qualité logicielle :
@@ -166,9 +204,10 @@ private static double determinant(double a, double b, double c) {
 Terme inventé par *Kent Beck* <!-- .element: class="highlight highlight-cyan" --> et popularisé par *Martin Fowler* <!-- .element: class="highlight highlight-cyan" -->
 
 > If it stinks, change it
-> <br> *– Beck*
+> <br> *– Kent Beck*
 
-Une notion intuitive rendue plus précise/objective par la littérature existante
+Une notion intuitive rendue plus précise et objective par la littérature existante  
+[Code smells & refactorings, Refactoring Guru](https://refactoring.guru/refactoring/smells)
 
 <!-- .element: class="arrow arrow-pink mtm" -->
 
@@ -181,6 +220,18 @@ Une notion intuitive rendue plus précise/objective par la littérature existant
 
 
 
+## Ubiquitous language
+
+> A language structured around the domain model and used by all team members within a bounded context 
+> to connect all the activities of the team with the software
+
+- Favoriser les termes fonctionnels et métiers plutôt que techniques dans le nom des méthodes, classes, modules
+- Rend le code plus facile à lire puisque sa structure reflète le problème à résoudre
+
+<!-- .element: class="mtl" -->
+
+
+
 <!-- .slide: class="page-title" -->
 # SOLID
 
@@ -190,22 +241,13 @@ Une notion intuitive rendue plus précise/objective par la littérature existant
 
 Principes de limitation des dépendances et d'amélioration de la cohésion énoncés par *Robert Martin* <!-- .element: class="highlight highlight-cyan" -->
 
-- **S** : Single Responsibility Principle (SRP)
-- **O** : Open / Closed Principle (OCP)
-- **L** : Liskov Substitution Principle (LSP)
-- **I** : Interface Segregation Principle (ISP)
-- **D** : Dependency Inversion Principle (DIP)
+- **S** <!-- .element: class="highlight highlight-blue" -->: Single Responsibility Principle (SRP)
+- **O** <!-- .element: class="highlight highlight-blue" -->: Open / Closed Principle (OCP)
+- **L** <!-- .element: class="highlight highlight-blue" -->: Liskov Substitution Principle (LSP)
+- **I** <!-- .element: class="highlight highlight-blue" -->: Interface Segregation Principle (ISP)
+- **D** <!-- .element: class="highlight highlight-blue" -->: Dependency Inversion Principle (DIP)
 
 Notes :
-Il s’agit de 5 principes de base de la programmation orientée objet.
-Ils sont censés amener un cadre de développement, une ligne directrice afin d’apporter de la fiabilité et robustesse aux applications
-
-- S : Une classe doit avoir une et une seule raison de changer
-- O : Une classe doit être ouverte aux extensions mais fermée aux modifications
-- L : Partout où on a besoin d'une instance d'une classe, on doit pouvoir utiliser une instance d'une sous-classe
-- I : Préférer plusieurs interfaces spécifiques pour chaque client, plutôt qu’une seule interface générale
-- D : On doit dépendre d’abstractions et pas d’implémentations
-
 
 
 ## Single Responsibility Principle
@@ -383,15 +425,9 @@ Lorsque les abstractions dépendent de détails :
 - Les préoccupations techniques sont mélangées aux préoccupations métier
 - Les *abstractions* <!-- .element: class="highlight highlight-pink" --> dépendent de modules instables, et sont donc *instables* <!-- .element: class="highlight highlight-pink" -->. Tout le code est alors instable, donc *fragile* <!-- .element: class="highlight highlight-pink" --> et *rigide* <!-- .element: class="highlight highlight-pink" -->.
 
-Lorsque les détails ne dépendent pas d’abstractions, le domaine sera anémique :
-
-<figure>
-  <img width="80%" src="ressources/qualite/02_principes_conception_dip-domaine-anemique.png" />
-</figure>
+Lorsque les détails ne dépendent pas d’abstractions, le domaine sera anémique.
 
 Notes :
-
-Ce principe est détaillé dans la partie suivante sur DIP/IoC/DI
 
 
 
@@ -402,15 +438,13 @@ Ce principe est détaillé dans la partie suivante sur DIP/IoC/DI
 
 ### Domain Driven Design
 
-Le *Domain Driven Design*<!-- .element: class="highlight highlight-cyan" --> est une approche de développement de logiciels centrée sur le métier au travers de design patterns de conception (technique) et de modèles conceptuels.
-
-<div class="row mtl">
+<div class="row">
     <div class="col-lg-3">
         <img src="ressources/qualite/ddd.png" />
     </div>
     <div class="col-lg-9">
-        <p>*Eric Evans* <!-- .element: class="highlight highlight-cyan" --> est à l’origine du concept qu’il détaille dans un livre intitulé *«Domain-Driven Design, Tackling complexity in the Heart of Software»*, sorti en 2003. Il présente ce livre comme étant le fruit de vingt années de best practices tirées au sein de la communauté de la programmation orientée objet.</p>
-        <p></p>
+        <p class="mts">Le *Domain Driven Design*<!-- .element: class="highlight highlight-cyan" --> est une approche de développement de logiciels centrée sur le métier au travers de design patterns de conception (technique) et de modèles conceptuels.</p>
+        <p class="mtl">*Eric Evans* <!-- .element: class="highlight highlight-cyan" --> est à l’origine du concept qu’il détaille dans un livre intitulé *«Domain-Driven Design, Tackling complexity in the Heart of Software»*, sorti en 2003. Il présente ce livre comme étant le fruit de vingt années de best practices tirées au sein de la communauté de la programmation orientée objet.</p>
     </div>
 </div>
 
@@ -425,25 +459,36 @@ Le *Domain Driven Design*<!-- .element: class="highlight highlight-cyan" --> est
     <div class="col-lg-9">
 <p class="mts">Le code doit refléter au maximum le domaine, révélant de manière fiable les fonctionnalités et permettant de décrire, juste en le visualisant, les scénarios d’exécution et les résultats que nous devrions obtenir.</p>
 <p>Le code est donc prédictif et les points d’entrée sont clairs et non ambigus.</p>
-<ul>
-<li>Intention-Revealing Interfaces</li>
-<li>Side-Effect-Free Functions</li>
-<li>Guards</li>
-<li>Conceptual Contours</li>
-<li>Standalone Classes et Closure of Operations</li>
-</ul>        
+<h4>Objectifs</h4>
+<ul><li>Rendre les comportements du code évidents</li>
+<li>Réduire le coût du changement</li>
+<li>Permettre la collaboration entre développeurs et métiers</li></ul>
     </div>
 </div>
 
 
 
+## Supple Design
+
+#### 5 principes fondamentaux
+
+- Intention-Revealing Interfaces
+- Side-Effect-Free Functions
+- Guards
+- Conceptual Contours
+- Standalone Classes et Closure of Operations
+
+
+
 ## Intention-Revealing Interfaces
 
-<div class="row">
+> Name classes and operations to describe their effect and purpose, without reference to the means by which they do what they promise.
+
+<div class="row mtl">
 	<div class="col-lg-7">
 		<h4 class="arrow arrow-blue mtl">L'interface (méthodes publiques) d'un composant (classe) doit révéler son intention.</h4>
     </div>
-    <div class="col-lg-4 col-lg-offset-1">
+    <div class="col-lg-3 col-lg-offset-1">
 		<img src="ressources/qualite/supple-design/intention-revealing-interface.png" />
     </div>
 </div>
@@ -457,22 +502,18 @@ Notes :
 <div class="row">
     <div class="col-lg-6">
 		<h4>Incorrect</h4>
-        <ul>
-            <li>*On doit regarder l’implémentation d’une interface pour comprendre ce qu’elle fait*
-            <br/><p class="arrow">L'encapsulation conceptuelle est perdue.</p></li>
-            <li>*Le nommage des méthodes d'une classe n’indique pas leur contrat*
-            <br/><p class="arrow">Les utilisateurs vont se fonder sur le code d’implémentation pour en deviner le contrat</p></li>
-            <li>*Code difficile à comprendre*</li>
-            <li>*Couplage fort*</li>
-            <li>*Perte de sens de la notion d’API*
-            <br/><p class="arrow">Les classes clientes ne dépendent plus seulement de la surface du fournisseur de service mais de son volume</p></li>
-        </ul>
+        <p>On doit regarder l’implémentation d’une interface pour comprendre ce qu’elle fait</p>
+        <p class="arrow arrow-pink mts">L'encapsulation conceptuelle est *perdue* <!-- .element: class="highlight highlight-pink" -->.</p>
+        <p>Le nommage des méthodes d'une classe n’indique pas leur contrat</p>
+        <p class="arrow arrow-pink mts">Les utilisateurs vont se fonder sur le code d’implémentation pour en deviner le contrat</p>
+        <p>Code difficile à comprendre, couplage fort, perte de sens de la notion d’API</p>
+        <p class="arrow arrow-pink">Les classes clientes ne dépendent plus seulement de la surface du fournisseur de service mais de son volume</p>
     </div>
     <div class="col-lg-6">
 		<h4>Correct</h4>
         <ul>
             <li>Éléments nommés suivant *ce qu’ils font* <!-- .element: class="highlight highlight-cyan" --> et non *comment* <!-- .element: class="highlight highlight-cyan" --> ils le font</li>
-            <li>Nommage utilisant *l’Ubiquitous Language* <!-- .element: class="highlight highlight-pink" -->, immédiatement compréhensible</li>
+            <li>Nommage utilisant *l’Ubiquitous Language* <!-- .element: class="highlight highlight-cyan" -->, immédiatement compréhensible</li>
             <li>L’approche test-first force à raisonner en terme d’utilisateur de l’API (et non pas de son fonctionnement interne)</li>
         </ul>
     </div>
@@ -482,12 +523,16 @@ Notes :
 
 ## Side-Effect-Free Functions
 
-<div class="row">
-	<div class="col-lg-6">
-		<h4 class="arrow arrow-blue mtl">Une *fonction pure* <!-- .element: class="highlight highlight-cyan" --> (retournant un résultat) ne doit pas avoir d'effets collatéraux et ne dépend que de ses arguments</h4>
-    </div>
+> Place as much of the logic of the program as possible into functions, operations that return
+> results with no observable side effects. Strictly segregate commands 
+> into very simple operations that do not return domain information
+
+<div class="row mtm">
     <div class="col-lg-6">
 		<img src="ressources/qualite/supple-design/side-effect-free-function.png" />
+    </div>
+	<div class="col-lg-6">
+		<h4 class="arrow arrow-blue mtl">Une *fonction pure* <!-- .element: class="highlight highlight-cyan" --> (retournant un résultat) ne doit pas avoir d'effets collatéraux et ne dépend que de ses arguments</h4>
     </div>
 </div>
 
@@ -499,22 +544,20 @@ Notes :
     <div class="col-lg-6">
 		<h4>Incorrect</h4>
         <ul>
-            <li style="list-style-type:none">*Fonctions (en particulier Domain Services) produisant ou tenant compte d'effets de bord*</li>
-            <li>*Complexification*
-            <br/>&rarr; Introduction du temps dans les raisonnements, résultats difficiles à prévoir
-            <br/>&rarr; Il faut parcourir l’arbre d’appels pour voir le bilan de ces effets</li>
-            <li>*Composition de services difficile*
-            <br/>&rarr; Exige de raisonner sur l'état interne du service et pas seulement sur son interface</li>
+            <p>Fonctions (en particulier Domain Services) produisant ou tenant compte d'effets de bord</p>
+            <p>*Complexification* <!-- .element: class="highlight highlight-pink" --></p>
+            <p class="arrow arrow-pink mts">Introduction du temps dans les raisonnements, résultats difficiles à prévoir</p>
+            <p class="arrow arrow-pink mtn">Il faut parcourir l’arbre d’appels pour voir le bilan de ces effets</p>
+            <p>Composition de services difficile</p>
+            <p class="arrow arrow-pink mts">Exige de raisonner sur l'état interne du service et pas seulement sur son interface</p>
         </ul>
     </div>
     <div class="col-lg-6">
 		<h4>Correct</h4>
-        <ul>
-            <li>Autant de logique que possible est placée dans des fonctions pures (sans effets collatéraux)</li>
-            <li>`Commands` (modifient l’état) et `Queries` (obtiennent un résultat sans modifier l’état) clairement séparées</li>
-            <li>Value Objects (immutables) utilisés partout où c’est possible</li>
-            <li>Scopes des objets définis clairement</li>
-        </ul>
+        <p>Autant de logique que possible placée dans des fonctions pures (sans effet de bord)</p>
+        <p>*Commands* <!-- .element: class="highlight highlight-cyan" --> (modifient l’état) et *Queries* <!-- .element: class="highlight highlight-cyan" --> (obtiennent un résultat sans modifier l’état) clairement séparées</p>
+        <p>*Value Objects* <!-- .element: class="highlight highlight-cyan" --> (immuables) utilisés partout où c’est possible</p>
+        <p>Scopes des objets définis clairement</p>
     </div>
 </div>
 
@@ -522,18 +565,20 @@ Notes :
 
 ## Guards
 
+> State post-conditions of operations and invariants of classes and aggregates.
+
 <div class="row">
-	<div class="col-lg-7">
-		<h4 class="arrow arrow-blue mts">Programmer défensivement. Fail early.</h4>
-<p class="arrow arrow-pink mtl">*Pré-conditions* </p>
-Vérifications en *début de méthode* <!-- .element: class="highlight highlight-cyan" -->, portant sur les paramètres ou l'état de l'objet.
-<p class="arrow arrow-pink mtl">*Post-conditions*</p>
-Vérifications en *fin de méthode* <!-- .element: class="highlight highlight-cyan" -->, portant sur le retour ou l'état de l'objet
-<p class="arrow arrow-pink mtl">*Invariants*</p>
-Vérifications en *fin de méthode publique* <!-- .element: class="highlight highlight-cyan" -->, portant sur l'état de l'objet, typiquement cohérence entre 2 champs.
-    </div>
-    <div class="col-lg-5">
+    <div class="col-lg-4">
 		<img src="ressources/qualite/supple-design/guards.png" />
+    </div>
+	<div class="col-lg-8">
+		<h4 class="arrow arrow-blue mts">Programmer défensivement. Fail early.</h4>
+        <p class="arrow arrow-pink mtm">*Pré-conditions* </p>
+        Vérifications en *début de méthode* <!-- .element: class="highlight highlight-cyan" -->, portant sur les paramètres ou l'état de l'objet.
+        <p class="arrow arrow-pink mtm">*Post-conditions*</p>
+        Vérifications en *fin de méthode* <!-- .element: class="highlight highlight-cyan" -->, portant sur le retour ou l'état de l'objet
+        <p class="arrow arrow-pink mtm">*Invariants*</p>
+        Vérifications en *fin de méthode publique* <!-- .element: class="highlight highlight-cyan" -->, portant sur l'état de l'objet, typiquement cohérence entre 2 champs.
     </div>
 </div>
 
@@ -546,24 +591,20 @@ Notes :
 <div class="row">
     <div class="col-lg-6">
 		<h4>Incorrect</h4>
-        <ul>
-            <li>*L'appel d'une fonction avec des paramètres incorrects ou sans respecter les prérequis est masqué*
-            <br/>&rarr; « Mis sous le tapis » silencieusement ou avec un simple log
-            <br/>&rarr; Peut corrompre l'état persisté !</li>
-            <li>*État du système après une opération défini seulement par son implémentation*
-            <br/>&rarr; Oblige à "creuser" dans le fonctionnement interne de l’opération</li>
-            <li style="list-style-type:none">Rend les bugs très difficiles à analyser en éloignant la conséquence de sa cause première
-            <br/>&rarr; Peuvent se produire plusieurs heures plus tard
-            <br/>&rarr; Peuvent se produire dans une ligne de code très éloignée</li>
-        </ul>
+        <p>L'appel d'une fonction avec des paramètres incorrects ou sans respecter les prérequis est masqué :
+        « Mis sous le tapis » silencieusement ou avec un simple log, peut corrompre l'état persisté.</p>
+        <p>*État du système après une opération défini seulement par son implémentation*</p>
+        <p class="arrow arrow-pink mts">Oblige à "creuser" dans le fonctionnement interne de l’opération</p>
+        <p>Rend les bugs très *difficiles à analyser* <!-- .element: class="highlight highlight-pink" --> en éloignant la conséquence de sa cause première</p>
+        <p class="arrow arrow-pink mts">Peuvent se produire plusieurs heures plus tard ou dans une ligne de code très éloignée</p>
     </div>
     <div class="col-lg-6">
 		<h4>Correct</h4>
         <ul>
             <li>Contrat d'entrée et prérequis des fonctions exprimés par des préconditions</li>
             <li>Contrats de sortie exprimés avec des invariants et des post-conditions</li>
-            <li>*Fail early* : toute violation de ces conditions entraîne l'arrêt immédiat du traitement en cours</li>
-            <li>Faire *RIEN* plutôt que *N'IMPORTE QUOI* </li>
+            <li>*Fail early* <!-- .element: class="highlight highlight-cyan" --> : toute violation de ces conditions entraîne l'arrêt immédiat du traitement en cours</li>
+            <li>Faire *RIEN* <!-- .element: class="highlight highlight-cyan" --> plutôt que *N'IMPORTE QUOI* <!-- .element: class="highlight highlight-cyan" --> </li>
         </ul>
     </div>
 </div>
@@ -572,7 +613,9 @@ Notes :
 
 ## Standalone Classes, Closure of operations
 
-<div class="row">
+> Most interesting objects end up doing things that can’t be characterized by primitives alone.
+
+<div class="row mtl">
 	<div class="col-lg-6">
 		<h4 class="arrow arrow-blue">Pour minimiser le couplage et maximiser la cohésion à l'extrême :</h4>
 	<ul>
@@ -592,26 +635,19 @@ Notes :
 <div class="row">
     <div class="col-lg-6">
 		<h4>Incorrect</h4>
-        <ul>
-            <li>*Même dans un module bien conçu, la difficulté de compréhension augmente beaucoup avec le nombre de dépendances*
-            <br/>&rarr; Cette surcharge mentale est défavorable
-            <br/>&rarr; Il existe une borne à la complexité compréhensible par un développeur</li>
-        </ul>
+            <p>Même dans un module bien conçu, la difficulté de compréhension augmente beaucoup avec le nombre de dépendances</p>
+            <p class="arrow arrow-pink">Cette surcharge mentale est *défavorable* <!-- .element: class="highlight highlight-pink" --></p>
+            <p class="arrow arrow-pink">Il existe une borne à la complexité compréhensible par un développeur</p>
     </div>
     <div class="col-lg-6">
 		<h4>Correct</h4>
         <ul>
-            <li>Quand c’est possible, pousser le couplage faible à l’extrême : concevoir des types entièrement autoporteurs
-            <br/>&rarr; Ce pattern s'applique surtout aux *Value Objects*
-            <br/>&rarr; Il est lié au pattern suivant : *Closure of Operations*</li>
+            <p>Lorsque c’est possible, pousser le couplage faible à l’extrême : concevoir des types entièrement autoporteurs</p>
+            <p class="arrow arrow-cyan">Ce pattern s'applique surtout aux *Value Objects* <!-- .element: class="highlight highlight-cyan" --></p>
+            <p class="arrow arrow-cyan">Il est lié au pattern suivant : *Closure of Operations* <!-- .element: class="highlight highlight-cyan" --></p>
         </ul>
     </div>
 </div>
-
-Notes :
-
-Ce pattern et le suivant sont liés, ils s'appliquent tous deux aux VOs
-
 
 
 
@@ -620,22 +656,21 @@ Ce pattern et le suivant sont liés, ils s'appliquent tous deux aux VOs
 <div class="row">
     <div class="col-lg-6">
 		<h4>Incorrect</h4>
-        <ul>
-            <li>*Anti-pattern « Primitive Obsession »*
-            <br/>Utilisation prolifique de types primitifs et de strings dans toutes les couches</li>
-            <li>*L'utilisation de Value Objects est un bon début*
-            <br/>Mais on ne les exploite pas pleinement sans le pattern *Closure of Operations*</li>
+            <p>Code smell : *Primitive Obsession* <!-- .element: class="highlight highlight-pink" --></p>
+            <p class="arrow arrow-pink">Utilisation prolifique de types primitifs et de strings dans toutes les couches</p>
+            <p>*L'utilisation de Value Objects est un bon début*</p>
+            <p class="arrow arrow-pink">Mais on ne les exploite pas pleinement sans le pattern *Closure of Operations* <!-- .element: class="highlight highlight-pink" --></p>
         </ul>
     </div>
     <div class="col-lg-6">
 		<h4>Correct</h4>
+        <p>Concevoir des VOs avec une interface riche, mais des dépendances minimales</p>
+        <p class="arrow arrow-cyan">De même que les types numériques sont stables par les opérations binaires arithmétiques (+ - × ÷), inclure dans les VOs des opérations binaires par lesquelles ils sont stables</p>
+        <p>Le VO et cette opération constituent:</p>
         <ul>
-            <li>*Concevoir des VOs avec une interface riche, mais des dépendances minimales*
-            <br/>De même que les types numériques sont stables par les opérations binaires arithmétiques (+ - × ÷), inclure dans les VOs des opérations binaires par lesquelles ils sont stables</li>
-            <li>Le VO et cette opération constituent:
-            <br/>&rarr; Un ensemble particulièrement cohérent
-            <br/>&rarr; Une interface sémantiquement significative
-            <br/>&rarr; Un type autoporteur</li>
+          <li>Un ensemble particulièrement cohérent</li>
+          <li>Une interface sémantiquement significative</li>
+          <li>Un type autoporteur</li>
         </ul>
     </div>
 </div>

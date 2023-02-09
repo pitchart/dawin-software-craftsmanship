@@ -140,6 +140,23 @@
 
 ### Code review
 
+<div class="row ">
+    <div class="col-lg-5">
+<img src="ressources/collective/review-wtf.png" alt="">
+    </div>
+    <div class="col-lg-7">
+<ul><li>Examen du code produit par un regard extérieur </li>
+<li>Préférer une revue de code *synchrone* <!-- .element: class="highlight" --> à de long commentaires écrits</li>
+<li>Le processus de review ne doit pas être inutilement complexe</li>
+<li>Un code écrit en pair ou mob programming est un code déjà revu</li></ul>
+
+<div class="picto picto-warning mtl">
+  <div class="picto-content picto-content-xs">
+    La revue de code n'est utile que si les *défauts* <!-- .element: class="highlight highlight-pink" --> constatés sont *corrigés* <!-- .element: class="highlight highlight-pink" -->
+  </div>
+</div>
+    </div>
+</div>
 
 
 ### Continuous Integration / Continuous Delivery
