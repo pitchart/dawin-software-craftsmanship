@@ -58,16 +58,16 @@ Précisément, même si les éléments à droite ont de la valeur, nous reconnai
 
 ## L'impasse du code sale
 <div class="row mtl">
-    <div class="col-lg-6">
-	<ul>
+    <div class="col-lg-8">
+	<ul class="mtl">
 		<li>Les conséquences du code sale se manifestent progressivement.</li>
 		<li>À mesure que le désordre augmente, la productivité tend vers 0</li>
 	</ul>
 	</div>
-	<div class="col-lg-6">
-		<figure style="margin-bottom:.5em">
-			<img src="ressources/images/01_qualite_logicielle_productivity-versus-time.png" width="50%" style="margin-bottom:0; margin-top:0" />
-			<figcaption style="font-size:0.8em">Productivité en fonction du temps <br>&mdash; Clean Code, Robert Martin</figcaption>
+	<div class="col-lg-4">
+		<figure>
+			<img src="ressources/craft/qualite-logicielle-productivity-versus-temps.png" />
+			<figcaption style=" font-size:0.8em">Productivité en fonction du temps <br>&mdash; Clean Code, Robert Martin</figcaption>
 		</figure>
 	</div>
 </div>
@@ -158,6 +158,29 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
 
 
 
+### Software craftsmanship
+
+> Craftsmanship over crap
+> <br> *- Robert Martin*
+
+<div class="row">
+    <div class="col-lg-3">
+        <img src="ressources/craft/the-software-craftsman.png" alt="">
+    </div>
+    <div class="col-lg-8">
+        <p>Dans son livre *The software craftsman*<!-- .element: class="highlight highlight-cyan" -->, Sandro Mancuso précise l'importance du *software Craftsmanship* <!-- .element: class="highlight highlight-cyan" --> pour atteindre une excellence technique et réussir une transformation Agile.</p>
+<p>Cela passe notamment par :</p>
+<ul>
+<li>La mise en place de pratiques d'ingénieurie</li>
+<li>De l'apprentissage continu, afin de se tenir à jour et toujours remettre en question ses acquis</li>
+<li>Du mentoring, afin de partager ses connaissances et compétences avec ses pairs et faire naitre d'autres craftsmen</li>
+<li>Du professionnalisme, en travaillant tant d'un point de vue produit que d'un point de vue technique</li>
+</ul>
+    </div>
+</div>
+
+
+
 ### Valeurs, principes, pratiques
 
 <div class="row">
@@ -167,7 +190,8 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
     <h4>Valeurs</h4>
     <ul><li>Fierté / Satisfaction</li>
     <li>Excellence technique</li>
-    <li>Pragmatisme</li></ul>
+    <li>Pragmatisme</li>
+    <li>Partage</li></ul>
   </div>
 </div>
 <div class="picto picto-great">
@@ -199,6 +223,3 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
 </div>
     </div>
 </div>
-
-
-
