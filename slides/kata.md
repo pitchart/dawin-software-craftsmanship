@@ -1,21 +1,22 @@
-# Xtreme TDD
+# Xtreme TDD : the money problem
 
 - Historique
-- Pair review / programming ()
+- Pair review / programming
   - Pair review du kata + backlog amélioration continue
-- Mob programming basic
+- Mob programming basics
 - Qualité de code (nommage, code style, commentaires)
+  - Code propre / code sal ?
   - Refacto expressivité du code ...
   - editorconfig
 - Tests + TU
-  - Anatomie tests unitaire : revoir écriture des TU
+  - Anatomie tests unitaire : revoir l'écriture des TU
 - Metrics qualité
   - mutation testing + fix assertions
 - Mob programming extended
 - TDD
   - Implémentation Portfolio
 - *CICD ?*
-  - github actions
+  - github actions : exécution des tests unitaires
 - Refactoring / SOLID / Supple design
   - Money (value object) => Supple Design + Code smells
   - Use Only Immutable Types
@@ -25,9 +26,3 @@
   - Implémenter TDB sur ?
 - Refactoring with tests
   - Redesign the bank
-
-
-
-
-
-
