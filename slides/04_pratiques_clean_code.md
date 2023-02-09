@@ -19,13 +19,165 @@
 
 
 
+<!-- .slide: class="page-questions" -->
+<img src="ressources/questions.svg" class="question" />
+## Qu'est-ce que du code sale ?
+
+Notes :
+
+
+## Qu'est-ce que du code sale ?
+
+Quelques exemples de réponses :
+
+- Un marécage où on se perd
+- Du code spaghetti
+- Du code sans structure
+- Du code dupliqué
+- Un patchwork mille fois reprisé
+- ...
+
+Notes :
+
+
+# Qu'est-ce que du code propre ?
+<!-- .slide: class="page-title" -->
+
+Notes :
+
+
+
+
+## Qu'est-ce que du code propre ?
+
+> Ce qui se concoit bien s'énonce clairement, et les mots pour le dire viennent aisément.<br/> *&mdash; Nicolas Boileau-Despréaux*
+
+- *Lisible* <!-- .element: class="highlight highlight-cyan" --> : Se lit comme une phrase. Les abstractions sont nettes, les chemins d'exécution évidents
+- *Élégant* <!-- .element: class="highlight highlight-cyan" --> : Assez simple et direct pour ne pas laisser de place aux bugs
+- *Facile à modifier* <!-- .element: class="highlight highlight-cyan" --> : Peut être modifié par un autre que son auteur : comprend des tests pour éviter les régressions, utilise un nommage explicite et expressif
+- *Écrit avec soin* <!-- .element: class="highlight highlight-cyan" --> : Aucun problème évident ne saute aux yeux
+- *Sans surprise* <!-- .element: class="highlight highlight-cyan" --> : Le corps des méthodes est ce qu'on avait deviné
+
+<!-- .element: class="mtl" -->
+
+
+
 <!-- .slide: class="page-title" -->
 # Mesurer la qualité logicielle
 
 
 
+## Métriques
+
+#### But : objectiver la qualité logicielle :
+
+- Couverture du code par les tests
+- Commentaires et documentation des classes et méthodes
+- Complexités cyclomatique et cognitive
+- ...
+
+Elles permettent en particulier de *déceler les baisses de qualité* <!-- .element: class="highlight highlight-cyan" --> par rapport à une baseline.
+
+<div class="picto picto-warning mtm">
+  <div class="picto-content">
+<h4>Attention aux effets pervers de la "*politique du chiffre*" !</h4>
+Tests alibi / Doc alibi
+  </div>
+</div>
+
+Les métriques sont utiles dans le cas d'un consentement éclairé, pas dans le cas d'une position de force / contractuelle.
+
+<!-- .element: class="arrow arrow-pink" -->
+
+
+
+## Limitations des outils et processus
+
+#### Ils sont nécessaires, mais pas suffisants
+
+- Les contrôles de qualité qu'ils effectuent restent **superficiels**<!-- .element: class="highlight highlight-pink" -->
+- Ils ne peuvent pas détecter une **mauvaise conception**<!-- .element: class="highlight highlight-pink" --> ou un **nommage incorrect**<!-- .element: class="highlight highlight-pink" -->
+- Ils peuvent donner une illusion de contrôle
+
+#### Ils doivent donc être complétés par<!-- .element: class="mtl" -->
+
+- Une bonne connaissance des principes de la **POO**<!-- .element: class="highlight highlight-cyan" -->
+- Des **actions correctives** <!-- .element: class="highlight highlight-cyan" -->  périodiques et non-automatisables
+- Une bonne **connaissance de la plateforme**<!-- .element: class="highlight highlight-cyan" --> utilisée
+
+
+
 <!-- .slide: class="page-title" -->
 # Expressivité, maintenabilité et code smells
+
+
+
+## Formatage des fichiers
+
+#### Standardiser les formats de fichiers évite les merges inutiles :
+
+- tabulations ou espaces ?
+- `\n` ou `\r\n` ?
+- UTF-8 plutôt que le platform default
+
+<div class="picto picto-great mtm">
+  <div class="picto-content">
+<h4>.editorconfig</h4>
+<ul><li>Explicite les règles par dépôt de code</li>
+<li>Facilite le formattage automatique du code via les IDE</li></ul>
+  </div>
+</div>
+
+Notes :
+
+
+
+
+## Formatage physique du code
+
+> Code formatting is too important to ignore and too important to treat religiously
+> <br/>*&mdash; Robert Martin, Clean Code*
+
+#### Utiliser des conventions de codage partagées rend le code plus homogène<!-- .element: class="mtl" -->
+
+- Pas plus de 120 caractères par lignes (80 : recommandation obsolète ?)
+- Position des accolades, 
+
+
+
+## Formatage logique du code
+
+#### Utiliser des conventions de codage partagées rend le code plus homogène
+
+- Conventions de nommage
+- Méthodes publiques avant les méthodes privées
+- Les méthodes proches conceptuellement doivent être proches verticalement
+- Accentuer les précédences des opérateurs avec des espaces
+```java
+private static double determinant(double a, double b, double c) {
+	return b*b - 4*a*c;
+}
+```
+
+
+
+## Code smell
+
+Terme inventé par *Kent Beck* <!-- .element: class="highlight highlight-cyan" --> et popularisé par *Martin Fowler* <!-- .element: class="highlight highlight-cyan" -->
+
+> If it stinks, change it
+> <br> *– Beck*
+
+Une notion intuitive rendue plus précise/objective par la littérature existante
+
+<!-- .element: class="arrow arrow-pink mtm" -->
+
+#### De même que les design patterns : <!-- .element: class="mtl" -->
+- Fournissent un vocabulaire standard
+- Donnent des critères d'applicabilité
+- Proposent des solutions : refactoring
+- Recensent des variations
+- Certains sont évidents, d'autres moins
 
 
 
@@ -46,13 +198,13 @@ Principes de limitation des dépendances et d'amélioration de la cohésion éno
 
 Notes :
 Il s’agit de 5 principes de base de la programmation orientée objet.
-Il sont censés amener un cadre de développement, une ligne directrice afin d’apporter de la fiabilité et robustesse aux applications
+Ils sont censés amener un cadre de développement, une ligne directrice afin d’apporter de la fiabilité et robustesse aux applications
 
-- S &rarr; Une classe doit avoir une et une seule raison de changer
-- O &rarr; Une classe doit être ouverte aux extensions mais fermée aux modifications
-- L &rarr; Partout où on a besoin d'une instance d'une classe, on doit pouvoir utiliser une instance d'une sous-classe
-- I &rarr; Préférer plusieurs interfaces spécifiques pour chaque client, plutôt qu’une seule interface générale
-- D &rarr; On doit dépendre d’abstractions et pas d’implémentations
+- S : Une classe doit avoir une et une seule raison de changer
+- O : Une classe doit être ouverte aux extensions mais fermée aux modifications
+- L : Partout où on a besoin d'une instance d'une classe, on doit pouvoir utiliser une instance d'une sous-classe
+- I : Préférer plusieurs interfaces spécifiques pour chaque client, plutôt qu’une seule interface générale
+- D : On doit dépendre d’abstractions et pas d’implémentations
 
 
 
@@ -122,10 +274,10 @@ Notes :
 ## Liskov Substitution Principle
 
 <div class="row">
-	<div class="col-lg-7">
+	<div class="col-lg-6">
 		<img src="ressources/qualite/solid/liskov-substitution-principle.png" />
     </div>
-	<div class="col-lg-5">
+	<div class="col-lg-6">
 		<h4 class="arrow arrow-blue mtl">Partout où on a besoin d'une instance d'une classe, on doit pouvoir utiliser une instance d'une sous-classe</h4>
     </div>
 </div>
@@ -250,15 +402,38 @@ Ce principe est détaillé dans la partie suivante sur DIP/IoC/DI
 
 ### Domain Driven Design
 
+Le *Domain Driven Design*<!-- .element: class="highlight highlight-cyan" --> est une approche de développement de logiciels centrée sur le métier au travers de design patterns de conception (technique) et de modèles conceptuels.
+
+<div class="row mtl">
+    <div class="col-lg-3">
+        <img src="ressources/qualite/ddd.png" />
+    </div>
+    <div class="col-lg-9">
+        <p>*Eric Evans* <!-- .element: class="highlight highlight-cyan" --> est à l’origine du concept qu’il détaille dans un livre intitulé *«Domain-Driven Design, Tackling complexity in the Heart of Software»*, sorti en 2003. Il présente ce livre comme étant le fruit de vingt années de best practices tirées au sein de la communauté de la programmation orientée objet.</p>
+        <p></p>
+    </div>
+</div>
+
 
 
 ## Supple Design
 
-- Intention-Revealing Interfaces
-- Side-Effect-Free Functions
-- Guards
-- Conceptual Contours
-- Standalone Classes et Closure of Operations
+<div class="row">
+    <div class="col-lg-3">
+        <img src="ressources/qualite/supple-design.png" />
+    </div>
+    <div class="col-lg-9">
+<p class="mts">Le code doit refléter au maximum le domaine, révélant de manière fiable les fonctionnalités et permettant de décrire, juste en le visualisant, les scénarios d’exécution et les résultats que nous devrions obtenir.</p>
+<p>Le code est donc prédictif et les points d’entrée sont clairs et non ambigus.</p>
+<ul>
+<li>Intention-Revealing Interfaces</li>
+<li>Side-Effect-Free Functions</li>
+<li>Guards</li>
+<li>Conceptual Contours</li>
+<li>Standalone Classes et Closure of Operations</li>
+</ul>        
+    </div>
+</div>
 
 
 
@@ -307,10 +482,13 @@ Notes :
 
 ## Side-Effect-Free Functions
 
-<div class="picto picto-ok">
-  <div class="picto-content">
-		<p>Une *fonction pure* <!-- .element: class="highlight highlight-cyan" --> (retournant un résultat) ne doit pas avoir d'effets collatéraux et ne dépend que de ses arguments</p>    
-  </div>
+<div class="row">
+	<div class="col-lg-6">
+		<h4 class="arrow arrow-blue mtl">Une *fonction pure* <!-- .element: class="highlight highlight-cyan" --> (retournant un résultat) ne doit pas avoir d'effets collatéraux et ne dépend que de ses arguments</h4>
+    </div>
+    <div class="col-lg-6">
+		<img src="ressources/qualite/supple-design/side-effect-free-function.png" />
+    </div>
 </div>
 
 
@@ -344,27 +522,22 @@ Notes :
 
 ## Guards
 
-<div class="picto picto-ok">
-  <div class="picto-content">
-	<p>Programmer défensivement. Fail early.</p>    
-  </div>
+<div class="row">
+	<div class="col-lg-7">
+		<h4 class="arrow arrow-blue mts">Programmer défensivement. Fail early.</h4>
+<p class="arrow arrow-pink mtl">*Pré-conditions* </p>
+Vérifications en *début de méthode* <!-- .element: class="highlight highlight-cyan" -->, portant sur les paramètres ou l'état de l'objet.
+<p class="arrow arrow-pink mtl">*Post-conditions*</p>
+Vérifications en *fin de méthode* <!-- .element: class="highlight highlight-cyan" -->, portant sur le retour ou l'état de l'objet
+<p class="arrow arrow-pink mtl">*Invariants*</p>
+Vérifications en *fin de méthode publique* <!-- .element: class="highlight highlight-cyan" -->, portant sur l'état de l'objet, typiquement cohérence entre 2 champs.
+    </div>
+    <div class="col-lg-5">
+		<img src="ressources/qualite/supple-design/guards.png" />
+    </div>
 </div>
 
-#### Pré-conditions
-Vérifications en début de méthode, portant sur :
-- les paramètres ( `IllegalArgumentException` / `NullPointerException` / `AssertionError` )
-- l'état de l'objet (`IllegalStateException`)
-
-#### Post-conditions
-Vérifications en fin de méthode, portant sur :
-- le retour (`AssertionError`)
-- l'état de l'objet (`IllegalStateException`)
-#### Invariants
-Vérifications en fin de méthode publique, portant sur :
-- l'état de l'objet, typiquement cohérence entre 2 champs (`AssertionError`)
-
 Notes :
-
 
 
 
@@ -397,54 +570,19 @@ Notes :
 
 
 
-## Conceptual Contours
-
-<div class="picto picto-ok">
-  <div class="picto-content">
-	<p>Un modèle du domaine a la bonne granularité si les cas d'utilisation sont une orchestration simple de ses éléments, et qu'il ne comprend pas d'éléments dupliqués</p>
-  </div>
-</div>
-
-
-
-## Conceptual Contours
-
-<div class="row">
-    <div class="col-lg-6">
-		<h4>Incorrect</h4>
-        <ul>
-            <li>*Les interfaces ont une granularité trop grosse*
-            <br/>&rarr; Elles ne sont utilisables que dans un seul contexte et provoquent donc de la duplication</li>
-            <li>*Les interfaces ont une granularité trop petite*
-            <br/>&rarr; Complique la tâche de leurs utilisateurs en les obligeant à assembler beaucoup de pièces microscopiques
-            <br/>&rarr; Au pire cette atomisation fait disparaître un concept (½ atome d'uranium, ce n’est plus de l'uranium)</li>
-            <li>*La découpe choisie n'est pas adaptée au domaine*, elle change sans cesse à chaque évolution ou oblige ses clients à des contorsions</li>
-        </ul>
-    </div>
-    <div class="col-lg-6">
-		<h4>Correct</h4>
-        <ul>
-            <li>Le découpage initial utilise l'intuition et la connaissance du domaine</li>
-            <li>Les refactors successifs font apparaître des axes de changement et de stabilité
-            <br/>&rarr; Trouver les contours conceptuels à l'origine des zones stables </li>
-        </ul>
-    </div>
-</div>
-
-Notes :
-
-
-
 ## Standalone Classes, Closure of operations
 
-<div class="picto picto-ok">
-  <div class="picto-content">
-    <h4>Pour minimiser le couplage et maximiser la cohésion à l'extrême :</h4>
+<div class="row">
+	<div class="col-lg-6">
+		<h4 class="arrow arrow-blue">Pour minimiser le couplage et maximiser la cohésion à l'extrême :</h4>
 	<ul>
-		<li>Utiliser des types auto-porteurs à chaque fois que c'est possible</li>
-		<li>Inclure des opérateurs binaires, ou retournant/prenant en paramètre le même type</li>
+		<li>Utiliser des types autoporteurs à chaque fois que c'est possible</li>
+		<li>Inclure des opérateurs binaires ou retournant/prenant en paramètre le même type</li>
 	</ul>
-  </div>
+    </div>
+    <div class="col-lg-6">
+		<img src="ressources/qualite/supple-design/value-object.png" />
+    </div>
 </div>
 
 
@@ -489,7 +627,7 @@ Ce pattern et le suivant sont liés, ils s'appliquent tous deux aux VOs
             <br/>Mais on ne les exploite pas pleinement sans le pattern *Closure of Operations*</li>
         </ul>
     </div>
-    <div class="col-lg-6 fragment">
+    <div class="col-lg-6">
 		<h4>Correct</h4>
         <ul>
             <li>*Concevoir des VOs avec une interface riche, mais des dépendances minimales*
