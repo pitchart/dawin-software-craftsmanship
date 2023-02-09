@@ -224,7 +224,7 @@ Notes :
 
 
 
-## 1 - Add a test
+## 1 - Ajouter un test
 
 - Chaque nouveau développement démarre par l'écriture d'un nouveau test « _qui devra passer_ ».
 - Ce test **doit** <!-- .element: class="highlight highlight-pink" --> échouer tant que le comportement n'est pas implémenté.
