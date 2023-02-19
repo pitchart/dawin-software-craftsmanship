@@ -1,6 +1,6 @@
 <!-- .slide: class="page-title" -->
 # Principes d'artisanat logiciel
-## Le chemin du software craftsmanship
+## Initiation au software craftsmanship
 
 
 
