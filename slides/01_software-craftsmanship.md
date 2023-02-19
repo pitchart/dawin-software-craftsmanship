@@ -223,3 +223,15 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
 </div>
     </div>
 </div>
+
+
+
+
+## 
+
+> 100% test coverage for code that was written in a Red -> Green - Refactor loop, is code that has *been crafted by your specs* <!-- .element: class="highlight" -->. <br><br>
+> If your specs accurately interpret *your user stories,* <!-- .element: class="highlight" -->  <br><br>
+> And your user stories accurately represent the *vision of the future* <!-- .element: class="highlight" --> provided by the product owner, <br><br>
+> And that vision accurately represents the *business's strategy* <!-- .element: class="highlight" -->, <br><br>
+> And the businesses strategy is sound, <br><br>
+> Then you've probably got yourself *some pretty cool code!* <!-- .element: class="highlight highlight-cyan" -->
