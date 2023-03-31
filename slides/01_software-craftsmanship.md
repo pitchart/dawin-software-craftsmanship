@@ -41,6 +41,7 @@ Précisément, même si les éléments à droite ont de la valeur, nous reconnai
 
 
 
+<!-- .slide: class="page-img" -->
 ## Conséquences d'une qualité insuffisante
 
 1. *Fragilité :*<!-- .element: class="highlight" --> les évolutions ou corrections provoquent fréquemment des régressions<br/>
@@ -81,6 +82,7 @@ Comme expliqué par le classique "Le mythe du mois-homme", ajouter des ressource
 
 
 
+<!-- .slide: class="page-img" -->
 ### Extreme programming
 
 une *méthode agile* <!-- .element: class="highlight highlight-pink" --> orientée sur l'aspect *réalisation d'une application* <!-- .element: class="highlight highlight-pink" -->, sans pour autant négliger l'aspect gestion de projet.
@@ -141,6 +143,7 @@ Kent Beck, Ward Cunningham et Ron Jeffries
 
 
 
+<!-- .slide: class="page-img" -->
 ## 2008 : Manifeste pour le Software Craftsmanship
 
 En tant qu’aspirants *Artisans du Logiciel*<!-- .element: class="highlight highlight-pink" -->, nous relevons le niveau du développement professionnel de logiciels par la pratique et en aidant les autres à acquérir le savoir-faire.
@@ -157,8 +160,6 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
 [Manifesto for Software Craftsmanship](https://manifesto.softwarecraftsmanship.org/#/fr-fr)
 
 
-
-### Software craftsmanship
 
 > Craftsmanship over crap
 > <br> *- Robert Martin*
@@ -181,6 +182,7 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
 
 
 
+<!-- .slide: class="page-img" -->
 ### Valeurs, principes, pratiques
 
 <div class="row">
@@ -226,7 +228,7 @@ C'est à dire qu'en recherchant les éléments de gauche, nous avons trouvé que
 
 
 
-
+<!-- .slide: class="page-img" -->
 ## 
 
 > 100% test coverage for code that was written in a Red -> Green - Refactor loop, is code that has *been crafted by your specs* <!-- .element: class="highlight" -->. <br><br>

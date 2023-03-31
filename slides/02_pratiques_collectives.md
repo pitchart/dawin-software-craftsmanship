@@ -161,3 +161,44 @@
 
 ### Continuous Integration / Continuous Delivery
 
+> *Continuous Integration* <!-- .element: class="highlight highlight-cyan" --> is a software development practice where members of a team integrate their work *frequently* <!-- .element: class="highlight highlight-cyan" -->, [...] leading to multiple integrations per day
+> <br> *- Martin Fowler*
+
+<div class="row mtm">
+    <div class="col-lg-4">
+<img src="ressources/collective/continuous-integration.png" alt="">
+    </div>
+    <div class="col-lg-8">
+<div class="picto picto-great">
+  <div class="picto-content picto-content-xl">
+    <h4>Avantages</h4>
+    <ul><li>*Réduction des risques :* <!-- .element: class="highlight highlight-pink" --> build / test / deploy exécutés fréquemment</li>
+    <li>*Réduction des bugs :* <!-- .element: class="highlight highlight-pink" --> détection plus rapide, avant livraison en production</li></ul>
+  </div>
+</div>
+    </div>
+</div>
+
+
+
+### Continuous Integration
+
+#### Dans la pratique :
+
+<div class="row mtl">
+    <div class="col-lg-9">
+<ul><li>Un dépôt de sources unique</li>
+<li>Un build *automatisé* <!-- .element: class="highlight highlight-cyan" -->, *testé* <!-- .element: class="highlight highlight-cyan" --> automatiquement, *rapide* <!-- .element: class="highlight highlight-cyan" --></li>
+<li>Tout le monde *commit* <!-- .element: class="highlight highlight-cyan" --> sur la branche principale *tous les jours* <!-- .element: class="highlight highlight-cyan" --></li>
+<li>Chaque commit build la branche principale sur un environnement d'intégration</li>
+<li>Réparer les builds en erreur *immédiatement* <!-- .element: class="highlight highlight-cyan" --></li>
+<li>Des tests exécutés dans un environnement proche de celui de production</li>
+<li>Des exécutions accessibles à toute l'équipe</li>
+<li>Un déploiement automatisé</li></ul>
+    </div>
+    <div class="col-lg-3"><img src="ressources/collective/continuous-integration-book.png" alt="">
+    </div>
+</div>
+
+
+
