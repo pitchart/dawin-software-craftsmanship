@@ -40,11 +40,12 @@ Quelques exemples de réponses :
 Notes :
 
 
-# Qu'est-ce que du code propre ?
-<!-- .slide: class="page-title" -->
+
+<!-- .slide: class="page-questions" -->
+<img src="ressources/questions.svg" class="question" />
+## Qu'est-ce que du code propre ?
 
 Notes :
-
 
 
 
